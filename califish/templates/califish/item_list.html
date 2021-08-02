@@ -1,0 +1,42 @@
+{% extends "califish/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-9">
+        <br>
+        <h2>Post List</h2>
+        <br>
+        {% if user.is_superuser %}
+        you are super user
+        {% else %}
+        you are user
+        {% endif %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="200px">title</th>
+                    <th width="500px">content</th>
+                    <th width="200px">created date<br>update date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in item_list %}
+            <tr>
+                {% if item.picture %}
+                <img src="{{ item.picture.url }}" alt="">
+
+                {% endif %}
+                <td><a href=" "></a>{{ item.name }}</td>
+                <td><a href=" "></a>{{ item.price }}</td>
+<!--                <td>{{ item.content|safe|truncatechars_html:30 }}</td>-->
+<!--                <td>{{ item.created_at.date }}<br>{{ item.updated_at.date }}</td>-->
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+
+        <br>
+    </div>
+</div>
+{% endblock %}
